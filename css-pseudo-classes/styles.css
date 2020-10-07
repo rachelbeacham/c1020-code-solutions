@@ -1,0 +1,23 @@
+button {
+  padding: 6px 18px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+/*
+.gray {
+  background-color: lightgray;
+}
+*/
+
+tbody > tr:nth-child(odd) {
+  background-color: lightgray;
+}
