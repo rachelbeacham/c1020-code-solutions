@@ -44,22 +44,7 @@ label {
   font-weight: normal;
 }
 
-.email {
-  margin: 10px;
-  text-align: left;
-}
-
-.name {
-  margin: 10px;
-  text-align: left;
-}
-
-.location {
-  margin: 10px;
-  text-align: left;
-}
-
-.how-many {
+.form-field {
   margin: 10px;
   text-align: left;
 }
