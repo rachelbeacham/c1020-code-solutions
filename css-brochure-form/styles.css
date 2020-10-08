@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.form-container {
+  text-align: center;
+  margin: auto 200px;
+}
+
+h2 {
+  color: rgb(204, 90, 90);
+  text-transform: uppercase;
+  margin: 10px;
+  font-size: 12pt;
+  text-align: center;
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.input {
+  height: 30px;
+  border-radius: 6px;
+  border-color: rgb(233, 227, 227);
+  border-style: solid;
+  width: 100%;
+  font-family: 'AtlasGrotesk', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+select {
+  background-color: rgb(229, 226, 226);
+}
+
+label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin: 6px;
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.email {
+  margin: 10px;
+  text-align: left;
+}
+
+.name {
+  margin: 10px;
+  text-align: left;
+}
+
+.location {
+  margin: 10px;
+  text-align: left;
+}
+
+.how-many {
+  margin: 10px;
+  text-align: left;
+}
+
+.submit-button {
+  margin: 10px;
+  text-align: right;
+}
+
+button {
+  background-color: rgb(204, 90, 90);
+  color: white;
+  border-radius: 25px;
+  width: 80px;
+  height: 30px;
+  border: none;
+}
