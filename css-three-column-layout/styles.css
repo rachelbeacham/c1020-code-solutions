@@ -1,0 +1,48 @@
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: rgb(53, 163, 236);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+header,
+h3,
+p,
+.headings,
+.info {
+  color: white;
+  text-align: center;
+  margin: 0, auto;
+}
+
+img {
+  background-color: white;
+  border-radius: 180px;
+}
+
+.headings,
+.info,
+img {
+  width: calc(100% / 3);
+}
+
+.info {
+  font-size: 14px;
+  font-weight: 100;
+  opacity: 0.7;
+  line-height: 1.2rem;
+  padding: 0 20px;
+}
+
+.headings {
+  font-size: 16px;
+}
