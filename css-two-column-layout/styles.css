@@ -1,0 +1,60 @@
+body {
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  margin: 10px 10px;
+  justify-content: center;
+}
+
+img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+div.col-half > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+div.col-half {
+  margin: 30px;
+  width: 50%;
+}
+
+.col-full {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+h1,
+h3,
+button {
+  text-transform: uppercase;
+}
+
+h1 {
+  letter-spacing: 0.15rem;
+}
+
+p {
+  color: gray;
+  line-height: 1.8rem;
+}
+
+button {
+  color: red;
+  border: 2px solid red;
+  background-color: white;
+  padding: 5px 30px;
+}
