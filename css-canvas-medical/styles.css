@@ -1,0 +1,286 @@
+.container {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Tiempos Headline', sans-serif;
+}
+.row {
+  display: flex;
+}
+
+header {
+  border-bottom: 1px solid rgb(226, 223, 223);
+}
+div.title  {
+  width: 25%;
+  margin: 20px;
+}
+div.title > a , div.title a img,
+.name-address > img {
+  width: 100px;
+}
+nav.page-header {
+  margin: auto;
+}
+nav > a {
+  margin: 10px;
+  padding: 10px;
+  color: rgb(170, 170, 170);
+  text-decoration: none;
+}
+nav > button {
+  background-color: rgb(76, 104, 141);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5%;
+}
+nav > button a {
+  text-decoration: none;
+}
+div.info  button,
+section.learn-more button {
+  background-color: rgb(76, 104, 141);
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5%;
+}
+.white-text {
+  color: white;
+}
+.hero-banner {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+}
+.hero-banner::before {
+  content: " ";
+  background-image: url("images/hero.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.75;
+  margin: 30px;
+}
+div.info {
+  position: relative;
+  width: 50%;
+  margin: 40px;
+}
+div.info > p{
+line-height: 1.4rem;
+}
+div.info > p,
+footer.final-links > a,
+.clinicians-heading > p,
+nav > a {
+  font-size: 10pt;
+}
+div.info > h2 {
+  font-size: 20pt;
+}
+.clinicians-heading {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  line-height: 1.4rem;
+}
+
+.clinicians {
+  display: block;
+  color: rgb(143, 143, 143);
+}
+.clinicians p {
+  opacity: .85;
+}
+
+.practices-1 , .practices-2 {
+  width: 50%;
+  font-size: 10pt;
+  position: relative;
+  left: 100px;
+  margin: 40px 0;
+}
+.practices-1 p ,
+.practices-2 p {
+  margin: 18px 0;
+}
+section.learn-more div.text {
+  width: 70%;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  color: rgb(143, 143, 143);
+}
+section.learn-more div.text > p{
+  font-size: 8pt;
+}
+section.learn-more div.button {
+  margin: auto;
+}
+section.footer-links {
+  background-color: rgb(78, 78, 78);
+}
+.name-address , .company-links , .product-links{
+  width: 30%;
+  padding: 10px 20px;
+  font-size: 10pt;
+  margin: 60px 20px;
+}
+.name-address > img {
+  position: relative;
+  left: 15px;
+}
+div.address > p {
+  margin: 5px;
+  opacity: .75;
+}
+div.address {
+  position: relative;
+  left: 5px;
+  top: 20px;
+  font-size: 8pt;
+  opacity: .75;
+}
+div.company-links {
+  position: relative;
+  left: 120px;
+  bottom: 10px;
+  opacity: .85;
+}
+.company-links > a , .product-links > a {
+  display: block;
+  margin: 10px;
+  opacity: .75;
+  text-decoration: none;
+
+}
+
+.product-links {
+  position: relative;
+  bottom: 10px;
+  left: 50px;
+  opacity: .75;
+}
+.company-links > p , .product-links > p {
+  position: relative;
+  left: 8px;
+  opacity: .75;
+}
+footer.final-links > a {
+  color: rgb(143, 143, 143);
+  padding: 10px;
+  margin-left: 30px;
+}
+footer.final-links , section.clinicians {
+  background-color: rgba(243, 243, 243, .6);
+  padding: 25px 0;
+}
+/* product.html CSS */
+
+.product-hero {
+  position: relative;
+  width: 100%;
+  padding: 75px 20px;
+}
+.product-hero::before {
+  content: " ";
+  background-image: url("images/product/product-header.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0.75;
+  margin: 30px;
+}
+.charting-graphic img ,
+.performance-graphic img ,
+.population-graphic img {
+  width: 350px;
+  justify-content: center;
+}
+.performance-graphic img {
+  position: relative;
+  top: 60px
+}
+.charting-info ,
+.charting-graphic ,
+.performance-info ,
+.performance-graphic ,
+.population-info ,
+.population-graphic {
+  width: 50%;
+  margin: 20px;
+  padding: 10px;
+}
+.charting-info p ,
+.performance-info p,
+.population-info p,
+.contact-message p {
+  color: rgb(143, 143, 143);
+  line-height: 1.4rem;
+  font-size: 10pt;
+  opacity: .85;
+}
+p.quote {
+  font-style: italic;
+}
+section.charting-section,
+section.performance-section {
+  background-color: rgba(243, 243, 243, .6);
+}
+.charting-info h3 ,
+.performance-info h3,
+.population-info h3 ,
+.contact-message > h2 {
+  color: rgb(106, 104, 104);
+
+}
+.charting-info div a ,
+.performance-info div a,
+.population-info div a {
+  font-size: 10pt;
+  color: rgb(53, 93, 134);
+}
+
+/* contact.html CSS */
+.contact-section {
+  padding: 60px 0;
+  border-bottom: 1px solid rgb(227, 227, 227);
+}
+.contact-message {
+  width: 80%;
+  margin: 20px 30px;
+}
+form input {
+  margin: 10px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+input::placeholder {
+  text-align: center;
+  opacity: .5;
+}
+
+input:focus{
+  outline: none;
+  text-align: center;
+}
+form > button {
+  position: relative;
+  left: 180px;
+  padding: 5px 10px;
+  background-color: rgb(76, 104, 141);
+  border: none;
+  border-radius: 10%;
+}
+.contact-message h2.phone-number {
+  color: rgb(53, 93, 134);
+  font-weight: lighter;
+}
