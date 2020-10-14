@@ -33,6 +33,10 @@ body {
   justify-content: center;
 }
 
+.spacing {
+  margin: 0 25px;
+}
+
 .phone,
 .icon,
 .description {
@@ -48,6 +52,6 @@ img.small-size {
 }
 
 p {
-  font-size: 9pt;
+  font-size: 8pt;
   font-weight: 400;
 }
