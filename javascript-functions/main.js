@@ -20,20 +20,16 @@ var areaResult = getArea(20, 20);
 console.log('Area result:', areaResult);
 
 function getFirstName(person) {
-  var name = {
-    firstName: 'Rachel',
-    lastName: 'Beacham'
-  };
-  return name.firstName;
+  var firstName = person.firstName;
+  return firstName;
 }
-var firstNameResult = getFirstName();
+var firstNameResult = getFirstName({ firstName: 'Rachel', lastName: 'Beacham' });
 console.log('First Name Result:', firstNameResult);
 
 function getLastElement(array) {
-  var dogs = ['Poodle', 'Labrador', 'Golden Retreiver', 'Huskey'];
-  var lastIndex = dogs.length - 1;
-  var lastDog = dogs[lastIndex];
-  return lastDog;
+  var lastIndex = array.length - 1;
+  var lastItem = array[lastIndex];
+  return lastItem;
 }
-var getLastElementResult = getLastElement();
+var getLastElementResult = getLastElement(['Poodle', 'Labrador', 'Golden Retreiver', 'Huskey']);
 console.log('Last element result:', getLastElementResult);
