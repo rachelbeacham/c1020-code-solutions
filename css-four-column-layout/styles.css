@@ -1,0 +1,57 @@
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: rgb(242, 242, 242);
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.black-text {
+  color: black;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.spacing {
+  margin: 0 25px;
+}
+
+.phone,
+.icon,
+.description {
+  flex-basis: 25%;
+}
+
+img.big-size {
+  width: 100%;
+}
+
+img.small-size {
+  width: 25%;
+}
+
+p {
+  font-size: 8pt;
+  font-weight: 400;
+}
