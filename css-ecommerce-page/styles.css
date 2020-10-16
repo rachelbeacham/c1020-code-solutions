@@ -19,6 +19,7 @@ body {
   display: flex;
   width: 100%;
 }
+
 .column {
   display: flex;
   flex-direction: column;
@@ -26,18 +27,22 @@ body {
   margin: 5px 8px;
 }
 
-
 .product-info {
-  width: 20%;
-  margin: 5px 8px;
+  width: 120px;
+  margin: 0;
+  font-size: 6pt;
+  justify-content: right;
 }
 
+.product,
 img {
   width: 100%;
+  height: 100%;
 }
 
 .capitalize {
   text-transform: capitalize;
+  margin-bottom: 0;
 }
 
 .gray-text {
@@ -51,18 +56,6 @@ img {
   margin-right: 3px;
 }
 
-.product-info {
-  font-size: 6pt;
-  width: 120px;
-}
-
 h3 {
   font-size: 1.1rem;
 }
-/*
-
-.prices {
-  position: relative;
-  bottom: 10px;
-}
-*/
