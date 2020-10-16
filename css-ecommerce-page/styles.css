@@ -1,0 +1,61 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.heading {
+  max-height: 45px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 5px 8px;
+}
+
+.product-info {
+  width: 120px;
+  margin: 0;
+  font-size: 6pt;
+  justify-content: right;
+}
+
+.product,
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.capitalize {
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.gray-text {
+  color: rgb(185, 185, 185);
+}
+
+.highlight {
+  background-color: rgb(251, 237, 221);
+  border-radius: 3px;
+  padding: 1px;
+  margin-right: 3px;
+}
+
+h3 {
+  font-size: 1.1rem;
+}
