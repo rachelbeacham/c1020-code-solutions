@@ -2,8 +2,9 @@
 function capitalize(word) {
   for (var i = 0; i < word.length; i++) {
     if (i === 0) {
-      word += word[i].toUpperCase();
+      word.toUppercase(word[i]);
     }
   }
+  word.toLowerCase(word[i]);
   return word;
 }
