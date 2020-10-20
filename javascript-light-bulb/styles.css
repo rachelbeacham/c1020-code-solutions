@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(247, 233, 207);
+  display: flex;
+  margin: auto;
+  width: 1080px;
+  height: 1080px;
+  justify-content: center;
+  align-items: center;
+}
+
+div {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: rgb(229, 205, 54);
+  opacity: 80%;
+  box-shadow: 5px 5px 5px 10px rgb(247, 247, 187);
+}
+
+div.off {
+  background-color: rgb(48, 48, 48);
+  box-shadow: 5px 5px 5px 5px black;
+}
+
+body.off {
+  background-color: rgb(20, 20, 20);
+}
+
+div.on {
+  background-color: rgb(229, 205, 54);
+  opacity: 80%;
+  box-shadow: 5px 5px 5px 10px rgb(247, 247, 187);
+}
+
+body.on {
+  background-color: rgb(247, 233, 207);
+}
