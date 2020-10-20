@@ -1,4 +1,7 @@
 /* eslint-disable no-unused-vars */
 function capitalize(word) {
-  return word[0].toUpperCase() + word.toLowerCase();
+  var firstLetter = word[0].toUpperCase();
+  var rest = word.substring(1);
+  word = firstLetter + rest.toLowerCase();
+  return word;
 }
