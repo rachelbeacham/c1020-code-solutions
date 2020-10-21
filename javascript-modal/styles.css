@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  max-width: 1200px;
+  height: 100vh;
+}
+
+.box {
+  width: 100%;
+  height: 100vh;
+}
+
+.box.modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+
+button {
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+button.open {
+  background-color: rgb(76, 76, 219);
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+button.survey {
+  background-color: tomato;
+  width: 20%;
+  justify-content: center;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.64);
+}
+
+div.hidden {
+  display: none;
+}
+
+div.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  border-radius: 5px;
+}
