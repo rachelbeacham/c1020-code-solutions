@@ -22,6 +22,7 @@ section {
   font-size: 1rem;
   color: white;
   background-color: blue;
+  transition: 0.5s;
 }
 
 .card-container {
@@ -38,6 +39,7 @@ section {
   background-color: white;
   cursor: pointer;
   transform: scale(1);
+  transition: 0.5s;
 }
 
 .card > img {
@@ -46,10 +48,8 @@ section {
 
 .custom-button:hover {
   background-color: red;
-  transition: 0.5s;
 }
 
 .card:hover {
   transform: scale(1.1);
-  transition: 0.5s;
 }
