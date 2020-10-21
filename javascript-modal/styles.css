@@ -2,9 +2,24 @@
   box-sizing: border-box;
 }
 
-.container {
-  width: 1200px;
+body {
+  margin: 0;
+  max-width: 1200px;
   height: 100vh;
+}
+
+.box {
+  width: 100%;
+  height: 100vh;
+}
+
+.box.modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
 }
 
 button {
@@ -17,6 +32,9 @@ button {
 
 button.open {
   background-color: rgb(76, 76, 219);
+  position: relative;
+  top: 5px;
+  left: 5px;
 }
 
 button.survey {
@@ -26,7 +44,7 @@ button.survey {
   box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.64);
 }
 
-div.modal {
+div.hidden {
   display: none;
 }
 
@@ -37,10 +55,6 @@ div.active {
   align-items: center;
   width: 400px;
   height: 200px;
-  position: fixed;
-  top: 30%;
-  left: 30%;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px 1200px rgba(0, 0, 0, 0.75);
 }
