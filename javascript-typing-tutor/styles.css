@@ -16,5 +16,17 @@ body {
   color: red;
 }
 .next {
-  border-bottom: 1px solid black;
+  border-bottom: 3px solid black;
+}
+button.shown {
+  color: white;
+  background-color: rgb(248, 34, 34);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
 }
