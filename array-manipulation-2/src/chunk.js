@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 function chunk(array, size) {
   var newArray = [];
-  for (var i = 0; i < array.length; i++) {
-    var section = array.slice(0, size);
-    var section2 = array.slice(-size);
-
+  debugger;
+  for (var i = 0; i < array.length; i = i + size) {
+    var section = array.slice(i, i + size);
+    newArray.push(section);
   }
-  newArray.push(section);
-  newArray.push(section2);
   return newArray;
 }
