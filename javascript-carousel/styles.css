@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+img {
+  width: 450px;
+  height: 450px;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hidden {
+  display: none;
+}
+.arrow-icon {
+  font-size: 3rem;
+  color: teal;
+}
+
+.progress-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.current {
+  background-color: teal;
+  border-radius: 50%;
+  border: none;
+}
+
+.progress-indicators i {
+  margin: 10px;
+}
