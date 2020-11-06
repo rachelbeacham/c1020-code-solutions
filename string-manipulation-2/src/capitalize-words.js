@@ -5,12 +5,9 @@ function capitalizeWords(string) {
   var lowerChar = '';
   for (var i = 1; i < string.length; i++) {
     if (string[i] === ' ') {
-      var newWordChar = string[i + 1].toUpperCase();
-    } else {
-      lowerChar += string[i].toLowerCase();
+      var word = string.substring(1, i).toLowerCase() + string[i + 1].toUpperCase();
     }
-
   }
-  string = firstChar + lowerChar + newWordChar + lowerChar;
+  string = firstChar + word;
   return string;
 }
