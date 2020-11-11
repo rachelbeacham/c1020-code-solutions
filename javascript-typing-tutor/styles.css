@@ -1,0 +1,32 @@
+body {
+  font-family: Courier, serif;
+}
+.container {
+  max-width: 800px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.correct {
+  color: lime;
+}
+.wrong {
+  color: red;
+}
+.next {
+  border-bottom: 3px solid black;
+}
+button.shown {
+  color: white;
+  background-color: rgb(248, 34, 34);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.hidden {
+  display: none;
+}
