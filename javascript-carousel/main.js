@@ -8,37 +8,38 @@ var position = 0;
 var interval = setInterval(rotate, 3000);
 
 $progressIndicators.addEventListener('click', function (e) {
-  var view = e.target.dataset.view;
+  var view = parseInt(e.target.dataset.view);
+  position = view;
   updateImage(view);
 });
 
 $rightArrow.addEventListener('click', rotate);
 
 $leftArrow.addEventListener('click', function () {
-  position--;
-  updateImage(position);
-  if (position === -1) {
-    updateImage('4');
+  if (position === 0) {
+    position = $image.length - 1;
+  } else {
+    position--;
   }
+  updateImage(position);
 });
 
 function rotate() {
-  position++;
-  updateImage(position);
-  if (position === 5) {
-    updateImage('0');
+  if (position === $image.length - 1) {
+    position = 0;
+  } else {
+    position++;
   }
+  updateImage(position);
 }
 
 function updateImage(currentValue) {
-  var i = parseInt(currentValue);
-  for (var j = 0; j < $image.length; j++) {
-    $image[j].className = 'image hidden';
-    $circles[j].className = 'far fa-circle circle';
-    if (j === i) {
-      $image[j].className = 'image';
-      $circles[j].className = 'far fa-circle circle current';
+  for (var i = 0; i < $image.length; i++) {
+    $image[i].className = 'image hidden';
+    $circles[i].className = 'far fa-circle circle';
+    if (i === currentValue) {
+      $image[i].className = 'image';
+      $circles[i].className = 'far fa-circle circle current';
     }
   }
-  position = i;
 }
