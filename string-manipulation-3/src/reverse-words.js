@@ -6,10 +6,8 @@ function reverseWords(string) {
     var current = stringArray[i];
     for (var j = current.length - 1; j >= 0; j--) {
       reverseString += current[j];
-      if (i !== stringArray.length - 1) {
-        if (j === 0) {
-          reverseString += ' ';
-        }
+      if (i !== stringArray.length - 1 && j === 0) {
+        reverseString += ' ';
       }
     }
   }

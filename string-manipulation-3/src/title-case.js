@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-function titleCase(title) {
+/* function titleCase(title) {
   var titleArray = title.split(' ');
   var newArray = [];
   var newIndividuals = [];
@@ -48,3 +48,4 @@ function titleCase(title) {
   var finalString = newIndividuals.join('');
   return finalString;
 }
+*/
