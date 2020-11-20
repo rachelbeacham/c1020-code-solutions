@@ -1,14 +1,20 @@
 /* eslint-disable no-unused-vars */
 function zip(first, second) {
   var newArray = [];
-  for (var i = 0; i < first.length; i++) {
+  var coupleArray;
+  if (first.length < second.length) {
+    for (var f = 0; f < first.length; f++) {
+      coupleArray = [];
+      coupleArray.push(first[f]);
+      coupleArray.push(second[f]);
+      newArray.push(coupleArray);
+    }
+  } else {
     for (var s = 0; s < second.length; s++) {
-      if (i === s) {
-        var coupleArray = [];
-        coupleArray.push(first[i]);
-        coupleArray.push(second[s]);
-        newArray.push(coupleArray);
-      }
+      coupleArray = [];
+      coupleArray.push(first[s]);
+      coupleArray.push(second[s]);
+      newArray.push(coupleArray);
     }
   }
   return newArray;
