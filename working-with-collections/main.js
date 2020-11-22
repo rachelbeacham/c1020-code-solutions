@@ -2,6 +2,8 @@
 /* eslint-disable no-console */
 console.log('Lodash is loaded:', typeof _ !== 'undefined');
 var deck = [];
+var ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king', 'ace'];
+var suits = ['spades', 'diamonds', 'clubs', 'hearts'];
 var scores = [];
 var winningScore;
 var congrats = '';
@@ -28,83 +30,53 @@ var players = [
   }
 ];
 
-for (var i = 1; i <= 13; i++) {
-  var hearts = {};
-  hearts.rank = i;
-  hearts.suit = 'hearts';
-  hearts.value = i;
-  var spades = {};
-  spades.rank = i;
-  spades.suit = 'spades';
-  spades.value = i;
-  var diamonds = {};
-  diamonds.rank = i;
-  diamonds.suit = 'diamonds';
-  diamonds.value = i;
-  var clubs = {};
-  clubs.rank = i;
-  clubs.suit = 'clubs';
-  clubs.value = i;
-  deck.push(hearts);
-  deck.push(spades);
-  deck.push(diamonds);
-  deck.push(clubs);
-  updateDeck();
-}
-function updateDeck() {
-  for (var d = 0; d < deck.length; d++) {
-    if (deck[d].rank === 1) {
-      deck[d].rank = 'Ace';
-      deck[d].value = 11;
-    } else if (deck[d].rank === 11) {
-      deck[d].rank = 'Jack';
-      deck[d].value = 10;
-    } else if (deck[d].rank === 12) {
-      deck[d].rank = 'Queen';
-      deck[d].value = 10;
-    } else if (deck[d].rank === 13) {
-      deck[d].rank = 'King';
-      deck[d].value = 10;
-    }
+for (var i = 0; i < suits.length; i++) {
+  for (var r = 0; r < ranks.length; r++) {
+    var card = {};
+    card.suit = suits[i];
+    card.rank = ranks[r];
+    deck.push(card);
   }
 }
 
 function deal() {
   deck = _.shuffle(deck);
-  for (var i = 0; i < deck.length; i++) {
-    players[0].hand.push(deck[i]);
-    players[0].hand.push(deck[i + 1]);
-    i += 2;
-    players[1].hand.push(deck[i]);
-    players[1].hand.push(deck[i + 1]);
-    i += 2;
-    players[2].hand.push(deck[i]);
-    players[2].hand.push(deck[i + 1]);
-    i += 2;
-    players[3].hand.push(deck[i]);
-    players[3].hand.push(deck[i + 1]);
-    i += 2;
-    break;
-  }
-}
-
-function addTotal(player) {
-  for (var i = 0; i < player.hand.length; i++) {
-    player.score += player.hand[i].value;
-  }
-  console.log(player.name + ' Score: ' + player.score);
-  scores.push(player.score);
-  winningScore = (Math.max(...scores));
-
-}
-
-function play() {
-  deal();
   for (var i = 0; i < players.length; i++) {
-    addTotal(players[i]);
+    players[i].hand.push(deck[i]);
+    players[i].hand.push(deck[i + 4]);
+  }
+}
+
+function getScore(hand) {
+  var pointValue = 0;
+  for (var i = 0; i < hand.length; i++) {
+    if (hand[i].rank === 'ace') {
+      pointValue += 11;
+    } else if (hand[i].rank === 'jack' || hand[i].rank === 'queen' || hand[i].rank === 'king') {
+      pointValue += 10;
+    } else {
+      pointValue += hand[i].rank;
+    }
+  }
+  return pointValue;
+}
+
+function determineWinner() {
+  winningScore = (Math.max(...scores));
+  for (var i = 0; i < players.length; i++) {
     if (players[i].score === winningScore) {
       congrats = players[i].name + ' is the Winner!';
     }
   }
   console.log(congrats);
+}
+
+function play() {
+  deal();
+  for (var i = 0; i < players.length; i++) {
+    players[i].score = getScore(players[i].hand);
+    console.log(players[i].name + ' Score: ' + players[i].score);
+    scores.push(players[i].score);
+  }
+  determineWinner();
 }
