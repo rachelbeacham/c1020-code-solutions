@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 const data = require('./data.json');
+const fs = require('fs');
+const command = process.argv[2];
 const notes = data.notes;
 let nextID = data.nextId;
-const command = process.argv[2];
-const fs = require('fs');
 const notesKeys = [];
 let largestKey;
 
@@ -18,13 +18,8 @@ if (command === 'create') {
   for (const id in notes) {
     notesKeys.push(parseInt(id));
   }
-  largestKey = Math.max(...notesKeys);
-  nextID = largestKey + 1;
-  data.nextId = nextID;
-  const dataJson = JSON.stringify(data, null, 2);
-  fs.writeFile('data.json', dataJson, 'utf8', err => {
-    if (err) throw err;
-  });
+  findNextId();
+  reWriteJson();
 }
 
 if (command === 'delete') {
@@ -32,15 +27,30 @@ if (command === 'delete') {
   for (const id in notes) {
     if (id === deleted) {
       delete notes[id];
-    } if (id !== deleted) {
+    } else if (id !== deleted) {
       notesKeys.push(parseInt(id));
     }
   }
-  largestKey = Math.max(...notesKeys);
-  nextID = largestKey + 1;
-  data.nextId = nextID;
+  findNextId();
+  reWriteJson();
+}
+
+if (command === 'update') {
+  const updateNum = process.argv[3];
+  const updateText = process.argv[4];
+  notes[updateNum] = updateText;
+  reWriteJson();
+}
+
+function reWriteJson() {
   const dataJson = JSON.stringify(data, null, 2);
   fs.writeFile('data.json', dataJson, 'utf8', err => {
     if (err) throw err;
   });
+}
+
+function findNextId() {
+  largestKey = Math.max(...notesKeys);
+  nextID = largestKey + 1;
+  data.nextId = nextID;
 }
