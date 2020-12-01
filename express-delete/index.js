@@ -20,7 +20,7 @@ app.get('/api/grades', (req, res) => {
   res.json(grades);
 });
 
-app.delete('/api/grades/:id', (req, res) => {
+app.delete('/api/grades/:id', function (req, res) {
   const id = parseInt(req.params.id);
   const index = id - 1;
   grades.splice(index, 1);
