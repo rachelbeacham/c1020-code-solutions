@@ -3,9 +3,7 @@ const data = require('./data.json');
 const fs = require('fs');
 const command = process.argv[2];
 const notes = data.notes;
-let nextID = data.nextId;
-const notesKeys = [];
-let largestKey;
+const nextID = data.nextId;
 
 if (command === 'read') {
   for (const id in notes) {
@@ -15,10 +13,7 @@ if (command === 'read') {
 
 if (command === 'create') {
   notes[nextID] = process.argv[3];
-  for (const id in notes) {
-    notesKeys.push(parseInt(id));
-  }
-  findNextId();
+  data.nextId = nextID + 1;
   reWriteJson();
 }
 
@@ -27,11 +22,8 @@ if (command === 'delete') {
   for (const id in notes) {
     if (id === deleted) {
       delete notes[id];
-    } else if (id !== deleted) {
-      notesKeys.push(parseInt(id));
     }
   }
-  findNextId();
   reWriteJson();
 }
 
@@ -47,10 +39,4 @@ function reWriteJson() {
   fs.writeFile('data.json', dataJson, 'utf8', err => {
     if (err) throw err;
   });
-}
-
-function findNextId() {
-  largestKey = Math.max(...notesKeys);
-  nextID = largestKey + 1;
-  data.nextId = nextID;
 }
