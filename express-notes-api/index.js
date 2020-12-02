@@ -85,25 +85,27 @@ app.delete('/api/notes/:id', (req, res) => {
   }
 });
 
-app.put('api/notes/:id', (req, res) => {
+app.put('/api/notes/:id', (req, res) => {
   const updatedNote = req.body;
   const id = parseInt(req.params.id);
   if (id > 0) {
-    for (const key in updatedNote) {
-      if (key !== 'content') {
+    for (const prop in updatedNote) {
+      if (prop !== 'content') {
         resError.error = 'content is a required field';
         res.status(400).json(resError);
       } else {
-        updatedNote.id = id;
-        for (const prop in notes) {
-          if (parseInt(prop) === id) {
-            notes[prop] = updatedNote;
-            res.status(200).send(notes[prop]);
+        for (const key in notes) {
+          if (parseInt(key) === id) {
+            notes[key] = updatedNote;
+            updatedNote.id = id;
             const dataJson = JSON.stringify(data, null, 2);
             fs.writeFile('data.json', dataJson, 'utf8', err => {
-              if (err) throw err;
-
+              if (err) {
+                resError.error = 'An unexpected error occurred.';
+                res.status(500).json(resError);
+              }
             });
+            res.status(200).send(updatedNote);
           }
         }
         resError.error = `cannot find note with id ${id}`;
@@ -112,7 +114,7 @@ app.put('api/notes/:id', (req, res) => {
     }
   } else {
     resError.error = 'id must be a positive integer';
-    res.status(400).json(resError);
+    res.status(400).send(resError);
   }
 });
 
