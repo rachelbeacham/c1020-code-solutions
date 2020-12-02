@@ -3,33 +3,25 @@ const fs = require('fs');
 const app = express();
 const data = require('./data.json');
 const notes = data.notes;
-const notesArray = [];
 const nextId = data.nextId;
 const resError = {};
 
-for (const key in notes) {
-  notesArray.push(notes[key]);
-}
-
 app.get('/api/notes', (req, res) => {
+  const notesArray = [];
+  for (const key in notes) {
+    notesArray.push(notes[key]);
+  }
   res.send(notesArray);
 });
 
 app.get('/api/notes/:id', (req, res) => {
   const id = parseInt(req.params.id);
   if (id > 0) {
-    let index = -1;
-    for (let i = 0; i < notesArray.length; i++) {
-      if (notesArray[i].id === id) {
-        index = i;
-        break;
-      }
-    }
-    if (index === -1) {
+    if (notes[id] === undefined) {
       resError.error = `cannot find note with id ${id}`;
-      res.status(404).json(resError);
+      res.status(404).send(resError);
     } else {
-      res.status(200).send(notesArray[index]);
+      res.status(200).send(notes[id]);
     }
   } else {
     resError.error = 'id must be a positive integer';
@@ -39,6 +31,18 @@ app.get('/api/notes/:id', (req, res) => {
 
 app.use(express.json());
 
+app.post('/api/notes', (req, res) => {
+  const newNote = req.body;
+  if (newNote.content === undefined) {
+    resError.error = 'content is a required field';
+    res.status(400).json(resError);
+  } else {
+    newNote.id = nextId;
+    notes[nextId] = newNote;
+  }
+});
+
+/*
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
   for (const key in newNote) {
@@ -60,7 +64,7 @@ app.post('/api/notes', (req, res) => {
     }
   }
 });
-
+*/
 app.delete('/api/notes/:id', (req, res) => {
   const id = parseInt(req.params.id);
   if (id > 0) {
