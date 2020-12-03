@@ -3,7 +3,7 @@ const fs = require('fs');
 const app = express();
 const data = require('./data.json');
 const notes = data.notes;
-const nextId = data.nextId;
+// const nextId = data.nextId;
 const resError = {};
 
 app.get('/api/notes', (req, res) => {
@@ -33,92 +33,73 @@ app.use(express.json());
 
 app.post('/api/notes', (req, res) => {
   const newNote = req.body;
-  if (newNote.content === undefined) {
+  if (req.body.content === undefined) {
     resError.error = 'content is a required field';
     res.status(400).json(resError);
   } else {
-    newNote.id = nextId;
-    notes[nextId] = newNote;
+    newNote.id = data.nextId;
+    notes[data.nextId] = newNote;
+    data.nextId++;
+    const dataJson = JSON.stringify(data, null, 2);
+    fs.writeFile('data.json', dataJson, 'utf8', err => {
+      if (err) {
+        resError.error = 'An unexpected error occurred.';
+        res.status(500).json(resError);
+      } else {
+        res.status(201).send(newNote);
+      }
+    });
   }
 });
 
-/*
-app.post('/api/notes', (req, res) => {
-  const newNote = req.body;
-  for (const key in newNote) {
-    if (key !== 'content') {
-      resError.error = 'content is a required field';
-      res.status(400).json(resError);
-    } else {
-      newNote.id = nextId;
-      notes[nextId] = newNote;
-      data.nextId = newNote.id + 1;
-      const dataJson = JSON.stringify(data, null, 2);
-      fs.writeFile('data.json', dataJson, 'utf8', err => {
-        if (err) {
-          resError.error = 'An unexpected error occurred.';
-          res.status(500).json(resError);
-        }
-      });
-      res.status(200).send(newNote);
-    }
-  }
-});
-*/
 app.delete('/api/notes/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  if (id > 0) {
-    for (const key in notes) {
-      if (parseInt(key) === id) {
-        delete notes[key];
-        res.sendStatus(204);
-        const dataJson = JSON.stringify(data, null, 2);
-        fs.writeFile('data.json', dataJson, 'utf8', err => {
-          if (err) {
-            resError.error = 'An unexpected error occurred.';
-            res.status(500).json(resError);
-          }
-        });
-      }
-    }
+  if (!Number.isInteger(id) || id < 1) {
+    resError.error = 'id must be a positive integer';
+    res.status(400).json(resError);
+    return;
+  }
+  if (notes[id] === undefined) {
     resError.error = `cannot find note with id ${id}`;
     res.status(404).json(resError);
   } else {
-    resError.error = 'id must be a positive integer';
-    res.status(400).json(resError);
+    delete notes[id];
+    const dataJson = JSON.stringify(data, null, 2);
+    fs.writeFile('data.json', dataJson, 'utf8', err => {
+      if (err) {
+        resError.error = 'An unexpected error occurred.';
+        res.status(500).json(resError);
+      } else {
+        res.sendStatus(204);
+      }
+    });
   }
 });
 
 app.put('/api/notes/:id', (req, res) => {
-  const updatedNote = req.body;
   const id = parseInt(req.params.id);
-  if (id > 0) {
-    for (const prop in updatedNote) {
-      if (prop !== 'content') {
-        resError.error = 'content is a required field';
-        res.status(400).json(resError);
-      } else {
-        for (const key in notes) {
-          if (parseInt(key) === id) {
-            notes[key] = updatedNote;
-            updatedNote.id = id;
-            const dataJson = JSON.stringify(data, null, 2);
-            fs.writeFile('data.json', dataJson, 'utf8', err => {
-              if (err) {
-                resError.error = 'An unexpected error occurred.';
-                res.status(500).json(resError);
-              }
-            });
-            res.status(200).send(updatedNote);
-          }
-        }
-        resError.error = `cannot find note with id ${id}`;
-        res.status(404).json(resError);
-      }
-    }
-  } else {
+  const updatedNote = req.body;
+  if (!Number.isInteger(id) || id < 1) {
     resError.error = 'id must be a positive integer';
-    res.status(400).send(resError);
+    res.status(400).json(resError);
+  } else if (req.body.content === undefined) {
+    resError.error = 'content is a required field';
+    res.status(400).json(resError);
+  } else if (notes[id] === undefined) {
+    resError.error = `cannot find note with id ${id}`;
+    res.status(404).json(resError);
+  } else {
+    updatedNote.id = id;
+    notes[id] = updatedNote;
+    const dataJson = JSON.stringify(data, null, 2);
+    fs.writeFile('data.json', dataJson, 'utf8', err => {
+      if (err) {
+        resError.error = 'An unexpected error occurred.';
+        res.status(500).json(resError);
+      } else {
+        res.status(200).send(updatedNote);
+      }
+    });
   }
 });
 
