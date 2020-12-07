@@ -31,15 +31,28 @@ const product = numbers.reduce((initial, current) => {
 });
 console.log('Product:', product);
 
+let initialValue = 0;
+const balance = account.reduce((initial, current) => {
+  if (current.type === 'deposit') {
+    initialValue += current.amount;
+  } else {
+    initialValue -= current.amount;
+  }
+}, initialValue);
+
+console.log('Balance:', initialValue);
+
+const composite = traits.reduce((initial, current) => Object.assign(initial, current));
+console.log('Composite:', composite);
+
+/*
 const balance = account.reduce((initial, current) => {
   if (current.type === 'deposit') {
     initial.amount += current.amount;
   } else {
     initial.amount -= current.amount;
-  }
+    }
   return initial;
 });
 console.log('Balance:', balance.amount);
-
-const composite = traits.reduce((initial, current) => Object.assign(initial, current));
-console.log('Composite:', composite);
+*/
