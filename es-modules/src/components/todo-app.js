@@ -1,11 +1,7 @@
 import { createElement, noop } from '../lib';
 import { TodoList } from './todo-list';
 import { TodoForm } from './todo-form';
-/*
-const { createElement, noop } = require('../lib');
-const TodoList = require('./todo-list');
-const TodoForm = require('./todo-form');
-*/
+
 class TodoApp {
   constructor(container, nextId, todos, onUpdate = noop) {
     this.container = container;
@@ -56,5 +52,4 @@ class TodoApp {
   }
 }
 
-// module.exports = TodoApp;
 export { TodoApp };

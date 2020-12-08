@@ -1,4 +1,3 @@
-// const { createElement } = require('../lib');
 import { createElement } from '../lib';
 
 class TodoList {
@@ -50,5 +49,4 @@ class TodoList {
   }
 }
 
-// module.exports = TodoList;
 export { TodoList };
