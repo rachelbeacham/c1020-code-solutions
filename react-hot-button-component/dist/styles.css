@@ -1,0 +1,39 @@
+button {
+  padding: 1rem 1.5rem;
+  box-shadow: 2px 2px 10px 2px #000;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+.one {
+  background-color: indigo;
+  color: white;
+}
+
+.two {
+  background-color: rgb(149, 62, 210);
+  color: white;
+}
+
+.three {
+  background-color: rgb(236, 121, 140);
+  color: white;
+}
+
+.four {
+  background-color: rgb(252, 164, 0);
+  color: black;
+}
+
+.five {
+  background-color: yellow;
+  color: black;
+}
+
+.six {
+  background-color: white;
+  color: black;
+}
