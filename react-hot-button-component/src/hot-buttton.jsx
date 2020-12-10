@@ -1,49 +1,37 @@
 import React from 'react';
 
-let count = 0;
-
 class HotButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isClicked: 0 };
+    this.state = { count: 0 };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    e.preventDefault();
-    count++;
     this.setState({
-      isClicked: count
+      count: this.state.count + 1
     });
   }
 
   render() {
+    let colorClass;
     const clicks = this.state.isClicked;
     if (clicks < 3) {
-      return (
-        <button className='one' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'one';
     } else if (clicks >= 3 && clicks < 6) {
-      return (
-        <button className='two' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'two';
     } else if (clicks >= 6 && clicks < 9) {
-      return (
-        <button className='three' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'three';
     } else if (clicks >= 9 && clicks < 12) {
-      return (
-        <button className='four' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'four';
     } else if (clicks >= 12 && clicks < 15) {
-      return (
-        <button className='five' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'five';
     } else if (clicks >= 15) {
-      return (
-        <button className='six' onClick={this.handleClick}>Hot Button</button>
-      );
+      colorClass = 'six';
     }
+    return (
+      <button className={colorClass} onClick={this.handleClick}>Hot Button</button>
+    );
   }
 }
 
