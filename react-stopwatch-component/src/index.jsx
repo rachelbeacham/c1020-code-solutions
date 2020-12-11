@@ -1,26 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let interval;
-
 class Stopwatch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { ticking: false };
+    this.state = {
+      ticking: false,
+      seconds: 0
+    };
     this.handleClick = this.handleClick.bind(this);
     this.handleReset = this.handleReset.bind(this);
   }
 
   handleClick() {
     if (this.state.ticking) {
-      clearInterval(interval);
+      clearInterval(this.interval);
       this.setState({
         ticking: !this.state.ticking
       });
     } else {
-      const $timer = document.querySelector('.timer');
-      interval = setInterval(() => {
-        $timer.textContent++;
+      this.interval = setInterval(() => {
+        this.setState({ seconds: this.state.seconds + 1 });
       }, 1000);
       this.setState({
         ticking: !this.state.ticking
@@ -30,8 +30,9 @@ class Stopwatch extends React.Component {
 
   handleReset() {
     if (this.state.ticking === false) {
-      const $timer = document.querySelector('.timer');
-      $timer.textContent = 0;
+      this.setState({
+        seconds: 0
+      });
     }
   }
 
@@ -45,7 +46,7 @@ class Stopwatch extends React.Component {
     return (
       <div className="row">
         <div className="watchFace" onClick={this.handleReset}>
-          <span className="timer">0</span>
+          <span className="timer">{this.state.seconds}</span>
         </div>
         <i className={icon} onClick={this.handleClick}></i>
       </div>
