@@ -1,0 +1,26 @@
+body {
+  margin: 0 auto;
+}
+
+i {
+  font-size: 2rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+.menu {
+  width: 30%;
+  height: 100vh;
+  margin-left: 1rem;
+}
+
+.dimmed {
+  width: 70%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
