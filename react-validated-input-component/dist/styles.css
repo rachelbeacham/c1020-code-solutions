@@ -22,11 +22,10 @@ p {
   margin-top: 0.5rem;
 }
 
-.fa-times,
 .error {
   color: red;
 }
 
-.fa-check {
+.good {
   color: green;
 }
