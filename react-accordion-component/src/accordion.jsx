@@ -22,14 +22,14 @@ class Accordion extends React.Component {
     }
   }
 
-  showView() {
-    let description;
+  render() {
     const topics = this.props.topics;
     const items = topics.map(topic => {
+      let descriptionClass;
       if (this.state.view === topic.id) {
-        description = 'description';
+        descriptionClass = 'description';
       } else {
-        description = 'description hidden';
+        descriptionClass = 'description hidden';
       }
       return (
         <div className="container" key={topic.id}>
@@ -37,18 +37,12 @@ class Accordion extends React.Component {
             <h2 className="name" id={topic.id} onClick={this.handleClick}>{topic.name}</h2>
           </div>
           <div className="border">
-            <p className={description}>{topic.description}</p>
+            <p className={descriptionClass}>{topic.description}</p>
           </div>
         </div>
       );
     });
     return items;
-  }
-
-  render() {
-    return (
-      this.showView()
-    );
   }
 }
 
