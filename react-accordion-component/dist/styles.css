@@ -1,0 +1,22 @@
+.border {
+  margin: 0 auto;
+  border: 2px solid pink;
+  width: 35%;
+}
+
+.name {
+  background-color: lightgray;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.description {
+  font-size: 0.8rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
