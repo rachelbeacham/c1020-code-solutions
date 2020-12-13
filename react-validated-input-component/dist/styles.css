@@ -1,0 +1,31 @@
+form {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+p {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.error {
+  color: red;
+}
+
+.good {
+  color: green;
+}
