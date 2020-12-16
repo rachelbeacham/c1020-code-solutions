@@ -18,10 +18,12 @@ img {
 .arrow {
   font-size: 2rem;
   margin: 0 2rem;
+  cursor: pointer;
 }
 
 .circle {
   margin: 2rem 1rem;
+  cursor: pointer;
 }
 
 .selected {

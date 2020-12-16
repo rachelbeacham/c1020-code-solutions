@@ -49,67 +49,43 @@ class Carousel extends React.Component {
     });
   }
 
-}
-export default Carousel;
+  getIndicators() {
+    const images = this.props.images;
+    const indicators = images.map(image => {
+      let indicatorClass;
+      if (this.state.image === image.id) {
+        indicatorClass = 'far fa-circle circle selected';
+      } else {
+        indicatorClass = 'far fa-circle circle';
+      }
+      return <i key={image.id} id={image.id} className={indicatorClass} onClick={this.handleIndicatorClick}></i>;
+    });
+    return (
+      <div className="row">{indicators}</div>
+    );
+  }
 
-/* render() {
-   const images = this.props.images;
-   let currentPhoto;
-   const photos = images.map(image => {
-     if (this.state.image === image.id) {
-       currentPhoto = image.url;
-       return currentPhoto;
-     }
-   });
-   return (
-     <div className="row">
-       <i className="fas fa-chevron-left arrow" id='left' onClick={this.handleArrowClick}></i>
-       <div className="column">
-         <div className="image">
-           <img src={currentPhoto} alt="picure of a dog" />
-         </div>
-         <div className="row">
-           <i className="far fa-circle circle selected" id='1' onClick={this.handleIndicatorClick}></i>
-           <i className="far fa-circle circle" id='2' onClick={this.handleIndicatorClick}></i>
-           <i className="far fa-circle circle" id='3' onClick={this.handleIndicatorClick}></i>
-           <i className="far fa-circle circle" id='4' onClick={this.handleIndicatorClick}></i>
-           <i className="far fa-circle circle" id='5' onClick={this.handleIndicatorClick}></i>
-         </div>
-       </div>
-       <i className="fas fa-chevron-right arrow" id='right' onClick={this.handleArrowClick}></i>
-     </div>
-   );
- }
-
- render() {
+  render() {
     const images = this.props.images;
     let currentPhoto;
-    const photosList = images.map(image => {
-      let iconClass;
-      if (this.state.image !== image.id) {
-        iconClass = 'far fa-circle circle';
-      } else {
+    images.map(image => {
+      if (this.state.image === image.id) {
         currentPhoto = image.url;
-        iconClass = 'far fa-circle circle selected';
+        return currentPhoto;
       }
     });
     return (
       <div className="row">
-        <i className="fas fa-chevron-left arrow" id='left' onClick={this.handleArrowClick}></i>
+        <i className="fas fa-chevron-left arrow" id ='left' onClick={this.handleArrowClick}></i>
         <div className="column">
           <div className="image">
-            <img src={currentPhoto} alt="picure of a dog" />
+            <img src={currentPhoto} alt='picture of a dog' />
           </div>
-          <div className="row">
-            <i className={iconClass} id='1' onClick={this.handleIndicatorClick}></i>
-            <i className={iconClass} id='2' onClick={this.handleIndicatorClick}></i>
-            <i className={iconClass} id='3' onClick={this.handleIndicatorClick}></i>
-            <i className={iconClass} id='4' onClick={this.handleIndicatorClick}></i>
-            <i className={iconClass} id='5' onClick={this.handleIndicatorClick}></i>
-          </div>
+          {this.getIndicators()};
         </div>
         <i className="fas fa-chevron-right arrow" id='right' onClick={this.handleArrowClick}></i>
       </div>
     );
   }
- */
+}
+export default Carousel;
