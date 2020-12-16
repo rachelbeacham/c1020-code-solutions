@@ -54,13 +54,13 @@ export default class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(target)
+      body: JSON.stringify({ isCompleted: !target.isCompleted })
     })
       .then(res => res.json())
       .then(data => {
         const updated = this.state.todos.slice();
         const index = updated.findIndex(todo => (todo.todoId === todoId));
-        updated[index].isCompleted = !data.isCompleted;
+        updated[index] = data;
         this.setState({
           todos: updated
         });
