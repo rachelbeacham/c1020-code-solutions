@@ -40,12 +40,11 @@ export default class App extends React.Component {
           todos: this.state.todos
         });
       });
-
   }
 
   toggleCompleted(todoId) {
     const todoList = this.state.todos;
-    const result = todoList.map(todo => {
+    const target = todoList.find(todo => {
       if (todo.todoId === todoId) {
         return { isCompleted: todo.isCompleted };
       }
@@ -55,14 +54,18 @@ export default class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(result[todoId - 1])
+      body: JSON.stringify(target)
     })
       .then(res => res.json())
       .then(data => {
-        const current = this.state.todos[todoId - 1];
-        current.isCompleted = !data.isCompleted;
-        return this.setState({
-          todos: this.state.todos
+        const updated = this.state.todos.slice();
+        updated.find(todo => {
+          if (todo.todoId === todoId) {
+            todo.isCompleted = !target.isCompleted;
+          }
+        });
+        this.setState({
+          todos: updated
         });
       });
   }
