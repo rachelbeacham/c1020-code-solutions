@@ -9,7 +9,6 @@ class Carousel extends React.Component {
     this.handleIndicatorClick = this.handleIndicatorClick.bind(this);
     this.handleArrowClick = this.handleArrowClick.bind(this);
     this.rotate = this.rotate.bind(this);
-    this.interval = setInterval(this.rotate, 3000);
   }
 
   handleIndicatorClick(e) {
@@ -27,7 +26,7 @@ class Carousel extends React.Component {
       this.rotate();
     } else if (id === 'left') {
       if (position === 1) {
-        position = 5;
+        position = this.props.images.length;
       } else {
         position--;
       }
@@ -65,10 +64,14 @@ class Carousel extends React.Component {
     );
   }
 
+  componentDidMount() {
+    this.interval = setInterval(this.rotate, 3000);
+  }
+
   render() {
     const images = this.props.images;
     let currentPhoto;
-    images.map(image => {
+    images.forEach(image => {
       if (this.state.image === image.id) {
         currentPhoto = image.url;
         return currentPhoto;
