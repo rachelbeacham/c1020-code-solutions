@@ -59,11 +59,8 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         const updated = this.state.todos.slice();
-        updated.find(todo => {
-          if (todo.todoId === todoId) {
-            todo.isCompleted = !target.isCompleted;
-          }
-        });
+        const index = updated.findIndex(todo => (todo.todoId === todoId));
+        updated[index].isCompleted = !data.isCompleted;
         this.setState({
           todos: updated
         });
