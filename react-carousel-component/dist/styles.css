@@ -1,0 +1,32 @@
+img {
+  width: 550px;
+  height: 450px;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow {
+  font-size: 2rem;
+  margin: 0 2rem;
+  cursor: pointer;
+}
+
+.circle {
+  margin: 2rem 1rem;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: black;
+  border-radius: 50%;
+}
