@@ -36,8 +36,8 @@ app.post('/api/auth/sign-up', (req, res, next) => {
           res.status(201).json(result.rows[0]);
         })
         .catch(err => next(err));
-    });
-
+    })
+    .catch(err => next(err));
 });
 
 app.use(errorMiddleware);
