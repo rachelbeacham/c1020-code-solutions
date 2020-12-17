@@ -48,7 +48,7 @@ app.post('/api/auth/sign-in', (req, res, next) => {
   const sql = `
       select "userId",
              "hashedPassword"
-      from   "users"
+      from   "users" pas
       where  "username" = '${username}'
     `;
   db.query(sql)
