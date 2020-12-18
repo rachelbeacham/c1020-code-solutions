@@ -1,0 +1,32 @@
+User can sign up:
+  The clinet sends a get request to localhost:3000
+  index.jsx renders a react element of type App from app.jsx
+  The window location is assigned to the route property of the state
+  The render method of app.jsx sets the context value for the context defined in ../lib/app-context.jsx
+  The main body content is defined by calling ther renderPage function in app.jsx
+  The renderPage function evaluates the current route property of the state, if the path is sign in or sign up a react elemnt of type Auth (from ../pages/auth.jsx) is returned
+  If the user property of the state is null - the path property of the route property of the state is evaluated again to determine the welcome message
+  A react element of type AuthForm is returned from ../components/auth-form
+  When the user inputs a value into the form - the onChange event is fired - updating the state with username and password
+  When the form is submitted the handleSubmit function fires & a fetch request with the POST method is sent to the server with the username and password set in state & the action prop is sign-up.
+  On the backend, if the username and password are not falsey the password in the req body is hashed
+  Then the database is queried with an instert into statement and the users inputed username and hashed password are insterted into the database
+  Finally the window location hash is set to 'sign in'
+
+User can sign in:
+  The hashchange event listenr fires in app.jsx - setting the state.route to the new hash 'sign in'
+  The app is re-rendered due to state update.
+  Since the state.route is 'sign in' a react element of type Auth is rendered from auth.jsx
+  Since the user property of the state is still null the route property of the state is evaluated again to determine the welcome message
+  A react element of type AuthForm is returned from ../components/auth-form
+  When the user inputs a value into the form - the onChange event is fired - updating the state with username and password
+  When the form is submitted the handleSubmit function fires & a fetch request with the POST method is sent to the server with the username and password set in state is the body & the action prop is sign-in.
+  On the backend, if the username and password are not falsey the database is queried to find the userId and hashedPassword of the item that matches the users username.
+  If the username is in the database the provided password is compared with the hashed password in the database.
+  If the passwords match, the user is given an object containing the userId, username, and unique authorization token
+
+User can stay signed in:
+  After submitting the sign-in form, the onSingIn prop of the props object is called with the handleSignIn function from app.jsx and the result with the user and token is passed as an argument
+  The token is saved to local storage
+  The setState method is called and the user property of the state is updated with the userId and username.
+  The change in state causes a re-render on app.jsx
