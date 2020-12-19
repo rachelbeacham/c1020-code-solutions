@@ -30,3 +30,5 @@ User can stay signed in:
   The token is saved to local storage
   The setState method is called and the user property of the state is updated with the userId and username.
   The change in state causes a re-render on app.jsx
+  The path is updated to ' ' which causes the home page to appear
+  since the user property of the state object is not null, and the token is saved to local storage, the user can stay signed in across refreshes.
